@@ -1,3 +1,7 @@
+#### Note: This repo is a reproduce of paper: [Real-world Patient Trajectory Prediction from Clinical Notes Using Artificial Neural Networks and UMLS-Based Extraction of Concepts](https://link.springer.com/article/10.1007/s41666-021-00100-z)
+#### forked from https://github.com/JamilProg/patient_trajectory_prediction
+#### modification in step 3
+
 # Step 0 : Python environment
 - All of these scripts were ran with Python 3.7.
 - PyTorch version 1.5.0
@@ -22,6 +26,23 @@
 2.2 Put the "data" folder generated in step 1.3, and the installed "QuickUMLS" folder in concept_annotation folder.
 
 2.3 Once you're in concept_annotation folder, run quickUMLS_getCUI.py (if your machine is able to run about 25-30 threads, this process takes between hours to 3 days to finish, depending on the chosen parameters).
+
+note: 
+```
+issue: In the quickUMLS_getCUI.py, the old global varbale created by the author does not work in the python 3.09+. 
+```
+issue resolved with the following steps:
+
+1. Simply copy the three lines below:
+```
+matcher = QuickUMLS(quickumls_fp='./QuickUMLS', overlapping_criteria='score', threshold=0.7, similarity_name='cosine', window=5)
+ARGS = None
+TUIs = TUI_alpha
+```
+2. After copying:
+```
+Comment all declareations in the main_funct or __name__
+```
 
 Parameters are:
 
@@ -54,7 +75,9 @@ Parameters are:
 
 ## Step 3.2A : Diagnoses prediction
 
-Option 1 - FFN: Run 02_FFN_diagprediction.py (K-Fold Crossvalidation)
+Option 1a - FFN using GPU : Run 02_FFN_diagprediction.py (K-Fold Crossvalidation)
+
+Option 1b - FFN using CPU: Run 02_FFN_diagprediction_cpu.py (K-Fold Crossvalidation)
 
 Optional arguments are:
 
@@ -65,7 +88,9 @@ Optional arguments are:
 * --lr : learning rate
 * --dropOut : drop-out probability in the last layer
 
-Option 2 - RNN (NOT k-fold crossvalidation script because too long and heavy): train by running 02_GRU_train_GPU.py for GRU (or 02_LSTM_train_GPU.py for LSTM)
+Option 2a - RNN on GPU (NOT k-fold crossvalidation script because too long and heavy): train by running 02_GRU_train_GPU.py for GRU (or 02_LSTM_train_GPU.py for LSTM)
+
+Option 2b - RNN on CPU (NOT k-fold crossvalidation script because too long and heavy): train by running 02_GRU_train_cpu.py for GRU (or 02_LSTM_train_cpu.py for LSTM)
 
 Then, test by running 03_GRU_test.py for GRU (or 03_LSTM_test.py for LSTM).
 
@@ -82,9 +107,13 @@ Optional arguments for both RNN models are:
 
 In mortality_prediction folder, you can train and test a model (K-Fold Crossvalidation) whose architecture is :
 
-Option 1) Fully-connected (02_FFN_mortality.py)
+Option 1a) Fully-connected using GPU (02_FFN_mortality.py)
 
-Option 2) RNN with Gated Recurrent Unit cells (02_GRU_mortality.py)
+Option 1b) Fully-connected using CPU (02_FFN_mortality_cpu.py)
+
+Option 2a) RNN with Gated Recurrent Unit cells using GPU (02_GRU_mortality.py)
+
+Option 2b) RNN with Gated Recurrent Unit cells using CPU (02_GRU_mortality_cpu.py)
 
 Optional arguments for both models are:
 
