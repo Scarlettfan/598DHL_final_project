@@ -1,6 +1,6 @@
 #### Note: This repo is a reproduce of paper: [Real-world Patient Trajectory Prediction from Clinical Notes Using Artificial Neural Networks and UMLS-Based Extraction of Concepts](https://link.springer.com/article/10.1007/s41666-021-00100-z)
 #### forked from https://github.com/JamilProg/patient_trajectory_prediction
-#### modification in step 3
+#### modification in step 2 and step 3
 
 # Step 0 : Python environment
 - All of these scripts were ran with Python 3.7.
