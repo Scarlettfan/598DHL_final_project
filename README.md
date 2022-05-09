@@ -138,5 +138,6 @@ https://github.com/JamilProg/script_preproc_MIMIC/blob/master/README.md
 # Result
 * #### perfomace using different models
 ![Alt text](https://github.com/Scarlettfan/598DHL_final_project/blob/master/result1.png "result1")
+
 * #### perfomace on GPU and CPU
 ![Alt text](https://github.com/Scarlettfan/598DHL_final_project/blob/master/result2.png "result2")
