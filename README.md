@@ -1,6 +1,8 @@
-#### Note: This repo is a reproduce of paper: [Real-world Patient Trajectory Prediction from Clinical Notes Using Artificial Neural Networks and UMLS-Based Extraction of Concepts](https://link.springer.com/article/10.1007/s41666-021-00100-z)
-#### forked from https://github.com/JamilProg/patient_trajectory_prediction
-#### modification in step 2 and step 3
+* #### Note: This repo is a reproduce of paper: [Real-world Patient Trajectory Prediction from Clinical Notes Using Artificial Neural Networks and UMLS-Based Extraction of Concepts](https://link.springer.com/article/10.1007/s41666-021-00100-z)
+reference: Zaghir, J., Rodrigues-Jr, J. F., Goeuriot, L., & Amer-Yahia, S. (2021). Real-world patient trajectory prediction from clinical notes using artificial neural networks and umls-based extraction of concepts. Journal of Healthcare Informatics Research, 5(4), 474–496.
+* #### forked from https://github.com/JamilProg/patient_trajectory_prediction
+* #### modification in step 2 and step 3
+
 
 # Step 0 : Python environment
 - All of these scripts were ran with Python 3.7.
@@ -27,9 +29,9 @@
 
 2.3 Once you're in concept_annotation folder, run quickUMLS_getCUI.py (if your machine is able to run about 25-30 threads, this process takes between hours to 3 days to finish, depending on the chosen parameters).
 
-note: 
+note: modification in quickUMLS_getCUI.py
 ```
-issue: In the quickUMLS_getCUI.py, the old global varbale created by the author does not work in the python 3.09+. 
+issue: the old global varbale created by the author does not work in the python 3.09+. 
 ```
 issue resolved with the following steps:
 
