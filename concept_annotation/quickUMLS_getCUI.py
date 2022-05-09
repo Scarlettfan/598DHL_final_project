@@ -37,6 +37,7 @@ def main_funct(file):
                 fw.write(line)
                 continue
             # print(lineNb, flush=True)
+            matcher = QuickUMLS(quickumls_fp='./QuickUMLS', overlapping_criteria='score', threshold=0.7, similarity_name='cosine', window=5)
             matches = matcher.match(line, best_match=True, ignore_syntax=False)
             concepts_output = []
             for phrase_candidate in matches:
