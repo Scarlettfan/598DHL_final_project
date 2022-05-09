@@ -3,7 +3,7 @@ Reference:
   Zaghir, J., Rodrigues-Jr, J. F., Goeuriot, L., & Amer-Yahia, S. (2021). Real-world patient trajectory prediction from clinical notes using artificial neural networks and umls-based extraction of concepts. Journal of Healthcare Informatics Research, 5(4), 474–496.
 * #### forked from https://github.com/JamilProg/patient_trajectory_prediction
 * #### modification in step 2 and step 3
-
+* #### [Result](#reproduce-result)
 
 # Step 0 : Python environment
 - All of these scripts were ran with Python 3.7.
@@ -132,3 +132,11 @@ Optional arguments for both models are:
 For readmission prediction, it is mainly the same method and arguments as mortality_prediction, but in readmission_prediction folder.
 
 https://github.com/JamilProg/script_preproc_MIMIC/blob/master/README.md
+
+<a name=reproduce-result />
+
+# Result
+* #### perfomace using different models
+![Alt text](https://github.com/Scarlettfan/598DHL_final_project/blob/master/result1.png "result1")
+* #### perfomace on GPU and CPU
+![Alt text](https://github.com/Scarlettfan/598DHL_final_project/blob/master/result2.png "result2")
